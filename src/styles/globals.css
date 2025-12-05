@@ -24,9 +24,8 @@
   --bp-md: 768px;
 
   /* トランジション（インタラクティブ要素向け） */
-  --transition-interactive: background-color 0.2s ease-out,
-    color 0.2s ease-out,
-    transform 0.15s ease-out,
+  --transition-interactive:
+    background-color 0.2s ease-out, color 0.2s ease-out, transform 0.15s ease-out,
     box-shadow 0.15s ease-out;
 }
 
@@ -45,7 +44,11 @@
 
   :where(body) {
     min-height: 100vh;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
       sans-serif;
     background-color: var(--color-bg);
     color: var(--color-text);
