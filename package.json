@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "test": "echo \"テストは未設定です（プレースホルダ）。テストランナー導入後に有効なテストコマンドに置き換えます。\"",
     "lint": "eslint .",
     "preview": "vite preview"
   },
