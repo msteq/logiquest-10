@@ -1,0 +1,80 @@
+/* デザイントークン */
+:root {
+  /* 色 */
+  --color-bg: #0f172a;
+  --color-card: #111827;
+  --color-accent: #38bdf8;
+  --color-text: #e5e7eb;
+  --color-border: #4b5563;
+  --color-text-muted: #4b5563;
+
+  /* 余白（8px グリッド） */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+
+  /* 角丸 */
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+
+  /* 影 */
+  --shadow-card: 0 12px 30px rgba(15, 23, 42, 0.6);
+
+  /* ブレイクポイント */
+  --bp-md: 768px;
+
+  /* トランジション（インタラクティブ要素向け） */
+  --transition-interactive:
+    background-color 0.2s ease-out, color 0.2s ease-out, transform 0.15s ease-out,
+    box-shadow 0.15s ease-out;
+}
+
+/* ベーススタイル */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  :where(html, body) {
+    margin: 0;
+    padding: 0;
+  }
+
+  :where(body) {
+    min-height: 100vh;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    color-scheme: dark;
+  }
+
+  :where(h1, h2, h3, p) {
+    margin: 0;
+  }
+
+  :where(button, input, textarea, select) {
+    font: inherit;
+  }
+}
+
+/* レイアウト用ユーティリティ */
+@layer utilities {
+  .stack-md {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
