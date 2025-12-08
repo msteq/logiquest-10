@@ -1,0 +1,20 @@
+.root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+  padding-block: var(--spacing-lg);
+  padding-inline: var(--spacing-md);
+}
+
+@media (min-width: var(--bp-md)) {
+  .main {
+    padding-inline: var(--spacing-lg);
+  }
+}
