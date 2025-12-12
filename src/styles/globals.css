@@ -1,12 +1,38 @@
 /* デザイントークン */
 :root {
-  /* 色 */
-  --color-bg: #0f172a;
-  --color-card: #111827;
-  --color-accent: #38bdf8;
-  --color-text: #e5e7eb;
-  --color-border: #4b5563;
-  --color-text-muted: #4b5563;
+  /* =========================
+     テーマ別カラーパレット
+     ========================= */
+
+  /* dark-strong: ブラック */
+  --color-bg-strong: #020617;
+  --color-card-strong: #020617;
+  --color-accent-strong: #38bdf8;
+  --color-text-strong: #e5e7eb;
+  --color-border-strong: #4b5563;
+  --color-text-muted-strong: #6b7280;
+
+  /* dark-soft: ネイビー */
+  --color-bg-soft: #0f172a;
+  --color-card-soft: #111827;
+  --color-accent-soft: #38bdf8;
+  --color-text-soft: #e5e7eb;
+  --color-border-soft: #4b5563;
+  --color-text-muted-soft: #9ca3af;
+
+  /* =========================
+     実際に参照するトークン
+     初回レンダリングで data-theme がまだ無いときのデフォルト（ブラック／strong）
+     ========================= */
+  --color-bg: var(--color-bg-strong);
+  --color-card: var(--color-card-strong);
+  --color-accent: var(--color-accent-strong);
+  --color-text: var(--color-text-strong);
+  --color-border: var(--color-border-strong);
+  --color-text-muted: var(--color-text-muted-strong);
+
+  /* ヘッダー用の半透明背景色（テーマに関わらず共通のトーンで使う） */
+  --color-header-bg: rgba(15, 23, 42, 0.9);
 
   /* 余白（8px グリッド） */
   --spacing-sm: 0.5rem;
@@ -29,6 +55,25 @@
     box-shadow 0.15s ease-out;
 }
 
+/* data-theme は ThemeProvider（ThemeContext）が <html> に付与し、その値に応じてトークンを切り替える */
+:root[data-theme='dark-strong'] {
+  --color-bg: var(--color-bg-strong);
+  --color-card: var(--color-card-strong);
+  --color-accent: var(--color-accent-strong);
+  --color-text: var(--color-text-strong);
+  --color-border: var(--color-border-strong);
+  --color-text-muted: var(--color-text-muted-strong);
+}
+
+:root[data-theme='dark-soft'] {
+  --color-bg: var(--color-bg-soft);
+  --color-card: var(--color-card-soft);
+  --color-accent: var(--color-accent-soft);
+  --color-text: var(--color-text-soft);
+  --color-border: var(--color-border-soft);
+  --color-text-muted: var(--color-text-muted-soft);
+}
+
 /* ベーススタイル */
 @layer base {
   *,
@@ -37,6 +82,7 @@
     box-sizing: border-box;
   }
 
+  /* :where(...) を使ってセレクタの詳細度を上げずにベーススタイルを適用する */
   :where(html, body) {
     margin: 0;
     padding: 0;
